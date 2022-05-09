@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btnHome"
+        android:title="Home"
+        android:icon="@drawable/ic_home2"/>
+    <item
+        android:id="@+id/btnInfo"
+        android:title="Info"
+        android:icon="@drawable/ic_microphone"/>
+    <item
+        android:id="@+id/btnSetting"
+        android:title="Settings"
+        android:icon="@drawable/ic_setting"/>
+
+</menu>
