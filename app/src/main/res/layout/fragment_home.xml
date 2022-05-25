@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -94,58 +94,27 @@
                 android:layout_weight="0.5">
 
                 <TextView
+                    android:id="@+id/doAm"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="10 %"
+                    android:text="52 %"
                     android:textColor="@color/white"
                     android:textSize="40dp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/nhietDo"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="H: 2Oo L: -10o"
+                    android:text="H: 2Oo L: 10o"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </LinearLayout>
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/mylocation"-->
-            <!--                android:layout_width="130dp"-->
-            <!--                android:layout_height="130dp"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:background="@drawable/ellipse_90" />-->
-
-            <!--            <View-->
-            <!--                android:id="@+id/ellipse_902"-->
-            <!--                android:layout_width="150dp"-->
-            <!--                android:layout_height="150dp"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:background="@drawable/ellipse_90" />-->
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:layout_marginBottom="20dp"-->
-            <!--                android:text="90 C"-->
-            <!--                android:textColor="@color/primaryColor"-->
-            <!--                android:textSize="40dp"-->
-            <!--                android:textStyle="bold" />-->
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:layout_marginBottom="-20dp"-->
-            <!--                android:text="27 %"-->
-            <!--                android:textColor="@color/primaryColor"-->
-            <!--                android:textSize="20dp"-->
-            <!--                android:textStyle="bold" />-->
         </LinearLayout>
 
         <LinearLayout
@@ -160,7 +129,7 @@
             <RelativeLayout
                 android:id="@+id/optionRoom"
                 android:layout_width="190dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:background="@drawable/gradient_color"
                 android:backgroundTint="@color/gray"
@@ -171,7 +140,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
                     android:text="Room"
                     android:textColor="@color/primaryColor"
                     android:textSize="20dp"
@@ -180,7 +148,6 @@
             </RelativeLayout>
 
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -223,11 +190,12 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/statusDevice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:text="15 Devices"
+                    android:text="0 Devices ON"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
             </LinearLayout>
@@ -271,109 +239,112 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:text="20 Devices"
+                    android:text="0 Devices"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
             </LinearLayout>
 
         </RelativeLayout>
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:layout_marginHorizontal="30dp"-->
-<!--            android:layout_marginTop="10dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="160dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:layout_marginStart="0dp"-->
-<!--                android:background="@drawable/rounded_frame_layout"-->
-<!--                android:orientation="vertical">-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp">
 
-<!--                <FrameLayout-->
-<!--                    android:id="@+id/bathroom"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="100dp">-->
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:background="@drawable/rounded_frame_layout"
+                android:orientation="vertical">
 
-<!--                    <com.google.android.material.imageview.ShapeableImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:scaleType="fitXY"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent"-->
-<!--                        app:shapeAppearanceOverlay="@style/circle"-->
-<!--                        app:srcCompat="@drawable/kitchen_img"-->
-<!--                        />-->
-<!--                </FrameLayout>-->
+                <FrameLayout
+                    android:id="@+id/bathroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:text="Bathroom"-->
-<!--                    android:textColor="@color/primaryColor"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold" />-->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/circle"
+                        app:srcCompat="@drawable/kitchen_img"
+                        />
+                </FrameLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:text="15 Devices"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="18dp" />-->
-<!--            </LinearLayout>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Bathroom"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="160dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:background="@drawable/rounded_frame_layout"-->
-<!--                android:orientation="vertical">-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="0 Devices"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+            </LinearLayout>
 
-<!--                <FrameLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="100dp">-->
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rounded_frame_layout"
+                android:orientation="vertical">
 
-<!--                    <com.google.android.material.imageview.ShapeableImageView-->
-<!--                        android:id="@+id/kitchenroom"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:scaleType="fitXY"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent"-->
-<!--                        app:shapeAppearanceOverlay="@style/circle"-->
-<!--                        app:srcCompat="@drawable/kitchen_img" />-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
 
-<!--                </FrameLayout>-->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/kitchenroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/circle"
+                        app:srcCompat="@drawable/kitchen_img" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:text="Kitchen Room"-->
-<!--                    android:textColor="@color/primaryColor"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold" />-->
+                </FrameLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:text="20 Devices"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="18dp" />-->
-<!--            </LinearLayout>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Kitchen Room"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-<!--        </RelativeLayout>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="0 Devices"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

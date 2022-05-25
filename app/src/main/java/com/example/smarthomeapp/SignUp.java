@@ -46,11 +46,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
 
         progressBar=(ProgressBar) this.findViewById(R.id.progressBar);
 
-        reg_name=(EditText) this.findViewById(R.id.reg_name);
+
         reg_phone=(EditText) this.findViewById(R.id.reg_phone);
         reg_email=(EditText) this.findViewById(R.id.reg_email);
         reg_pass=(EditText) this.findViewById(R.id.reg_pass);
-
+        reg_name=(EditText) this.findViewById(R.id.reg_name);
     }
     @Override
     public void onClick(View v) {

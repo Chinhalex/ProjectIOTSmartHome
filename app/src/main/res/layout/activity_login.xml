@@ -42,8 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="SMART HOME"
                 android:layout_marginBottom="-5dp"
+                android:text="SMART HOME"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 

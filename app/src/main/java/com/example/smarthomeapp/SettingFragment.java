@@ -73,6 +73,11 @@ public class SettingFragment extends Fragment {
             startActivity(intent);
         });
 
+        binding.txtSyncData.setOnClickListener(view ->{
+            Intent intent = new Intent(getActivity().getApplication(), DataToEsp.class);
+            startActivity(intent);
+        });
+
         return binding.getRoot();
 
     }

@@ -16,13 +16,15 @@ import com.example.smarthomeapp.LivingRoom;
 import com.example.smarthomeapp.Module.DeviceModel;
 import com.example.smarthomeapp.R;
 import com.example.smarthomeapp.evenbus.MyUpdateCartEvent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.eventbus.EventBus;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.MyViewHolder> {
-
+    private FirebaseAuth mAuth;
     public ListDeviceApdater(Context context, ArrayList<DeviceModel> list) {
         this.context = context;
         this.list = list;
@@ -30,8 +32,6 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
 
     Context context;
     ArrayList<DeviceModel> list;
-
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -75,7 +75,10 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
 
 
     private void updateFirebase(DeviceModel deviceModel) {
-        FirebaseDatabase.getInstance().getReference("LivingRoom").child(deviceModel.getName())
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(firebaseUser.getUid()).child("device").child(deviceModel.getId())
                 .setValue(deviceModel);
 //                .addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new MyUpdateCartEvent()));
     }

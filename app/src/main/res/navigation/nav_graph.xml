@@ -21,9 +21,9 @@
     </fragment>
     <fragment
         android:id="@+id/btnInfo"
-        android:name="com.example.smarthomeapp.InfoFragment"
+        android:name="com.example.smarthomeapp.RecordFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_record" />
     <fragment
         android:id="@+id/emailChangeFragment"
         android:name="com.example.smarthomeapp.EmailChangeFragment"
