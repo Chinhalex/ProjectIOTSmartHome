@@ -103,7 +103,7 @@ public class SettingFragment extends Fragment {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(getContext(), "Mail sent verify the email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Mã xác nhận đã gửi qua Email!", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "" + task.getException(), Toast.LENGTH_SHORT).show();
                         Log.d("TAG", "onComplete: profile email " + task.getException());
@@ -120,9 +120,9 @@ public class SettingFragment extends Fragment {
         builder.setView(view);
         TextInputEditText edtUsername = view.findViewById(R.id.edtDialogUsername);
 
-        builder.setTitle("Edit Username");
+        builder.setTitle("Tên người dùng");
 
-        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String username = edtUsername.getText().toString().trim();
@@ -138,11 +138,11 @@ public class SettingFragment extends Fragment {
 
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
                                 Map<String, Object> map = new HashMap<>();
-                                map.put("username", username);
+                                map.put("Tên người dùng", username);
                                 databaseReference.child(firebaseAuth.getUid()).updateChildren(map);
 
                                 binding.txtUsername.setText(username);
-                                Toast.makeText(getContext(), "Username is updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Tên người dùng đã được cập nhật!", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 Log.d("TAG", "onComplete: " + task.getException());
@@ -151,11 +151,11 @@ public class SettingFragment extends Fragment {
                         }
                     });
                 } else {
-                    Toast.makeText(getContext(), "Username is required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Yêu cầu tên người dùng!", Toast.LENGTH_SHORT).show();
                 }
             }
         })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Hủy bỏ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

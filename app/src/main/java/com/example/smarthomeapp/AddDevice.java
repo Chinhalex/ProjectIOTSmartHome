@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -29,7 +32,6 @@ import java.util.List;
 public class AddDevice extends AppCompatActivity implements View.OnClickListener {
 
     Button addWidgetSwitch;
-    Button addWidgetSlider;
     Button confirmAdd;
     Button[] dButton = new Button[9];
     int[] buttonIds = {R.id.D0, R.id.D1, R.id.D2, R.id.D3, R.id.D4, R.id.D5, R.id.D6, R.id.D7, R.id.D8};
@@ -43,6 +45,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    int checkbutton = 0, flatButton = 100, checkSwitch = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,8 +53,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_add_device);
 
         deviceModels = new ArrayList<>();
-        addWidgetSwitch = findViewById(R.id.addWidgetSwitch);
-        addWidgetSlider = findViewById(R.id.addWidgetSlider);
+        addWidgetSwitch = findViewById(R.id.addWidgeSwitch);
         widgetNameAdd = findViewById(R.id.widgetNameAdd);
         confirmAdd = findViewById(R.id.confirmAdd);
         mAuth = FirebaseAuth.getInstance();
@@ -62,7 +64,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
         }
 
         //espPin = findViewById(R.id.espPin);
-        addWidgetSlider.setOnClickListener(this);
+        addWidgetSwitch.setBackgroundColor(Color.GRAY);
         addWidgetSwitch.setOnClickListener(this);
         confirmAdd.setOnClickListener(this);
         for(int i=0;i<9;i++) {
@@ -91,6 +93,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
             }
         });
     }
+    @SuppressLint("ResourceType")
     @Override
     public void onClick(View view) {
 
@@ -99,21 +102,36 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
             widgetNameAdd.setText("");//clear the field when button pushed'
             if(validInput())
                 gobackMainMenu(view);
-
         }
 
-        if(view.getId() == R.id.addWidgetSwitch){
+        if((view.getId() == R.id.addWidgeSwitch) && checkSwitch == 0){
             widgetType = "button";
             addWidgetSwitch.setBackgroundColor(Color.GREEN);
+            checkSwitch = 1;
         }
-        if(view.getId() == R.id.addWidgetSlider){
-            widgetType = "button";
-            addWidgetSlider.setBackgroundColor(Color.GREEN);
+        else if((view.getId() == R.id.addWidgeSwitch) && checkSwitch == 1){
+            checkSwitch =  0;
+            addWidgetSwitch.setBackgroundColor(Color.GRAY);
+            widgetType = "";
         }
+
         for(int i=0; i<9;i++){
-            if(view.getId() == buttonIds[i]){
+            if((view.getId() == buttonIds[i]) && checkbutton == 0){
+                flatButton = i;
+                checkbutton = 1;
                 dButton[i].setBackgroundColor(Color.GREEN);
                 espPin_s = ""+i;
+            }
+            else if((view.getId() == buttonIds[i]) && checkbutton == 1 && flatButton == i)
+            {
+                flatButton = 100;
+                checkbutton = 0;
+                dButton[i].setBackgroundColor(Color.GRAY);
+                espPin_s = "";
+            }
+            if(view.getId() == buttonIds[i] && flatButton != i)
+            {
+                return;
             }
         }
 
@@ -122,11 +140,11 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
         for(int i=0; i < deviceModels.size(); i++){
 
             if(deviceModels.get(i).getName().equals(widgetName_s)){
-                Toast.makeText(this, "ên đã tồn tại, chọn lại!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tên đã tồn tại, chọn lại!!!", Toast.LENGTH_SHORT).show();
                 return false;
             }
             if(deviceModels.get(i).getId().equals(espPin_s)){
-                Toast.makeText(this, "Chân esp8266 đã chọn rồi, chọn lại!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Chân đã chọn rồi, chọn lại!!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

@@ -23,11 +23,11 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="45dp"
         android:layout_marginBottom="3dp"
-        android:autofillHints="Wifi's Name"
+        android:autofillHints="Tên Wifi"
         android:background="@drawable/bg_radius"
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="10dp"
-        android:hint="Wifi's Name"
+        android:hint="Tên Wifi"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textSize="18sp" />
@@ -39,11 +39,11 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="3dp"
-        android:autofillHints="Password"
+        android:autofillHints="Mật khẩu"
         android:background="@drawable/bg_radius"
         android:drawableStart="@drawable/ic_key"
         android:drawablePadding="10dp"
-        android:hint="@string/hint_password"
+        android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textSize="18sp" />
@@ -51,7 +51,7 @@
         android:id="@+id/btn_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sync Data"
+        android:text="Gửi tới thiết bị"
         android:textColor="@color/white"
         tools:ignore="HardcodedText" />
     <TableRow
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="Don't want to synchronization?"
+            android:text="Bạn không muốn đồng bộ dữ liệu?"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginStart="5dp"
-            android:text="go to Home"
+            android:text="Trang chủ"
             android:textColor="@color/orange"
             android:textSize="15sp"
             android:textStyle="bold" />

@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/primaryColor"
         android:gravity="center"
-        android:text="Sync data to ESP"
+        android:text="Đồng bộ dữ liệu"
         android:textStyle="bold"
         android:layout_margin="10dp"/>
     <Button
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10sp"
         android:backgroundTint="@color/orangeMid"
-        android:text="Skip"
+        android:text="Bỏ qua"
         android:textStyle="bold"
        />
 

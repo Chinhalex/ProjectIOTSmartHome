@@ -74,26 +74,26 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         if (email.isEmpty())
         {
-            edt_email.setError("Email is reqired!");
+            edt_email.setError("Yêu cầu Email!");
             edt_email.requestFocus();
             return;
         }
         if (pass.isEmpty())
         {
-            edt_pass.setError("Pass is reqired!");
+            edt_pass.setError("Yêu cầu mật khẩu!");
             edt_pass.requestFocus();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
-            edt_email.setError("Email is reqired!");
+            edt_email.setError("Yêu cầu Email");
             edt_email.requestFocus();
             return;
         }
         if (pass.length() < 6)
         {
-            edt_pass.setError("Min pass length should be 6 characters!");
+            edt_pass.setError("Phải nhiều hơn 6 kí tự!");
             edt_pass.requestFocus();
             return;
         }
@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                                 if(user.isEmailVerified())
                                 {
                                     loadingDialog.stopLoading();
-                                    Toast.makeText(Login.this,"Login successfully",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Login.this,"Đăng nhập thành công",Toast.LENGTH_LONG).show();
 
                                     Intent intent = new Intent(Login.this, MainActivity.class);
 
@@ -124,14 +124,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                                 {
                                     loadingDialog.stopLoading();
                                     user.sendEmailVerification();
-                                    Toast.makeText(Login.this,"Please let verify user!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Login.this,"Xác nhận tài khoản Email!",Toast.LENGTH_LONG).show();
                                 }
 
                             }
                             else
                             {
                                 loadingDialog.stopLoading();
-                                Toast.makeText(Login.this,"Failed to login!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this,"Đăng nhập thất bại!",Toast.LENGTH_LONG).show();
                             }
                         }
                     });

@@ -47,12 +47,12 @@ public class PasswordChangeFragment extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             loadingDialog.stopLoading();
-                            Toast.makeText(requireContext(), "Password is updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireContext(), "Mật khẩu đã được cập nhật!", Toast.LENGTH_SHORT).show();
                             Navigation.findNavController(update).popBackStack();
                         } else {
                             loadingDialog.stopLoading();
                             Log.d("TAG", "onComplete: " + task.getException());
-                            Toast.makeText(requireContext(), "Error : " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireContext(), "Lỗi : " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -71,11 +71,11 @@ public class PasswordChangeFragment extends Fragment {
         View requestView = null;
 
         if (password.isEmpty()) {
-            binding.edtUPassword.setError("Field is required");
+            binding.edtUPassword.setError("Yêu cầu mật khẩu!");
             flag = true;
             requestView = binding.edtUPassword;
         } else if (password.length() < 8) {
-            binding.edtUPassword.setError("Minimum 8 characters");
+            binding.edtUPassword.setError("Tổi thiểu 8 kí tự!");
             flag = true;
             requestView = binding.edtUPassword;
         }

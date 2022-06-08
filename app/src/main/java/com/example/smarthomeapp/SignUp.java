@@ -84,38 +84,38 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
 
         if (name.isEmpty())
         {
-            reg_name.setError("Name is reqired!");
+            reg_name.setError("Yêu cầu tên!");
             reg_name.requestFocus();
             return;
         }
         if (phone.isEmpty())
         {
-            reg_phone.setError("Name is reqired!");
+            reg_phone.setError("Yêu cầu số điện thoại!");
             reg_phone.requestFocus();
             return;
         }
         if (email.isEmpty())
         {
-            reg_email.setError("Email is reqired!");
+            reg_email.setError("Yêu cầu Email!");
             reg_email.requestFocus();
             return;
         }
         if (pass.isEmpty())
         {
-            reg_pass.setError("Pass is reqired!");
+            reg_pass.setError("Yêu cầu mật khẩu!");
             reg_pass.requestFocus();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
-            reg_email.setError("Email is reqired!");
+            reg_email.setError("Yêu cầu Email hợp lệ!");
             reg_email.requestFocus();
             return;
         }
         if (pass.length() < 6)
         {
-            reg_pass.setError("Min pass length should be 6 characters!");
+            reg_pass.setError("Tối thiểu 6 kí tự!");
             reg_pass.requestFocus();
             return;
         }
@@ -141,7 +141,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
                                             loadingDialog.stopLoading();
                                             firebaseUser.sendEmailVerification();
 
-                                            Toast.makeText(SignUp.this,"User has been registered successfully, please verify your email!",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(SignUp.this,"Tài khoản đã đăng kí thành công, vui lòng xác nhận Email!",Toast.LENGTH_LONG).show();
 
                                             Intent intent = new Intent(SignUp.this, ConfirmSyncEsp.class);
 
@@ -154,7 +154,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
                                         else
                                         {
                                             loadingDialog.stopLoading();
-                                            Toast.makeText(SignUp.this,"Failed to register User!",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(SignUp.this,"Đăng kí tài khoản thất bại!",Toast.LENGTH_LONG).show();
                                         }
                                     }
                                 });
@@ -163,7 +163,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
                             else
                             {
                                 loadingDialog.stopLoading();
-                                Toast.makeText(SignUp.this,"Failed to register User !",Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignUp.this,"Đăng kí tài khoản thất bại !",Toast.LENGTH_LONG).show();
                             }
                         }
                     });

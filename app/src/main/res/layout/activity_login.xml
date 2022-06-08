@@ -43,16 +43,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="-5dp"
-                android:text="SMART HOME"
+                android:text="NHÀ THÔNG MINH"
                 android:textColor="@color/white"
-                android:textSize="50sp" />
+                android:textSize="40sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="-50dp"
-                android:text="Start Managing Your Home"
+                android:text="Bắt đầu quản lý nhà của bạn"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
         </FrameLayout>
@@ -84,7 +84,7 @@
             android:background="@drawable/bg_radius"
             android:drawableStart="@drawable/ic_key"
             android:drawablePadding="10dp"
-            android:hint="@string/hint_password"
+            android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textSize="18sp" />
@@ -96,7 +96,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/txt_forgot_pass"
+            android:text="Quên mật khẩu"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -110,7 +110,7 @@
             android:background="@drawable/bg_login"
             android:gravity="center"
             android:padding="10dp"
-            android:text="@string/txt_login"
+            android:text="Đăng nhập"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="@string/txt_no_account"
+                android:text="Bạn không có tài khoản?"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginStart="5dp"
-                android:text="@string/txt_register"
+                android:text="Đăng kí"
                 android:textColor="@color/teal_700"
                 android:textSize="15sp"
                 android:textStyle="bold" />

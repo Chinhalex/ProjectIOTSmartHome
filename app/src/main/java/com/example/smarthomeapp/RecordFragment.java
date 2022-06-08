@@ -52,12 +52,12 @@ public class RecordFragment extends Fragment {
         binding.btnSpeak.setOnClickListener(view1 -> {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "vi-VN");
             try {
                 startActivityForResult(intent, RESULT_SPEECH);
                 binding.tvText.setText("");
             } catch (ActivityNotFoundException e) {
-                Toast.makeText(getContext(), "Your device doesn't support Speech to Text", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Thiết bị của bạn không hỗ trợ voice! ", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         });
@@ -73,10 +73,9 @@ public class RecordFragment extends Fragment {
                             for(DataSnapshot drinkSnapshot:snapshot.getChildren()){
                                 DeviceModel deviceModel = drinkSnapshot.getValue(DeviceModel.class);
                                 deviceModels.add(deviceModel);
-
+                                
                             }
                         }
-
                     }
 
                     @Override
@@ -103,14 +102,14 @@ public class RecordFragment extends Fragment {
 
                         if (deviceModels.get(i).getStyle().equals("button")) {
                             //+ deviceModels.get(i).getName()
-                            if(dataVoice.contentEquals("Turn on "+ deviceModels.get(i).getName())||dataVoice.contentEquals("turn on "+ deviceModels.get(i).getName())){
+                            if(dataVoice.contentEquals("Bật "+ deviceModels.get(i).getName())||dataVoice.contentEquals("bật "+ deviceModels.get(i).getName())){
                                 deviceModels.get(i).status = true;
                                 firebaseDatabase.getInstance().getReference("Users")
                                         .child(firebaseUser.getUid()).child("device")
                                         .child(deviceModels.get(i).getId()).setValue(deviceModels.get(i));
                                 Toast.makeText(requireContext(), "đã bật "+ deviceModels.get(i).getName(), Toast.LENGTH_LONG).show();
                             }
-                            else if(dataVoice.contentEquals("Turn off "+ deviceModels.get(i).getName())||dataVoice.contentEquals("turn off "+ deviceModels.get(i).getName())){
+                            else if(dataVoice.contentEquals("Tắt "+ deviceModels.get(i).getName())||dataVoice.contentEquals("tắt "+ deviceModels.get(i).getName())){
                                 deviceModels.get(i).status = false;
                                 firebaseDatabase.getInstance().getReference("Users")
                                         .child(firebaseUser.getUid()).child("device")

@@ -3,15 +3,15 @@
 
         <item
             android:id="@+id/btnHome"
-            android:title="Home"
+            android:title="Trang chủ"
             android:icon="@drawable/ic_home2"/>
         <item
             android:id="@+id/btnInfo"
-            android:title="Voice"
+            android:title="Giọng nói"
             android:icon="@drawable/voice" />
         <item
             android:id="@+id/btnSetting"
-            android:title="Settings"
+            android:title="Cài đặt"
             android:icon="@drawable/ic_setting"/>
 
 <!--        <item-->

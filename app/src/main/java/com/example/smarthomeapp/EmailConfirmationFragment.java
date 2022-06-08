@@ -73,7 +73,7 @@ public class EmailConfirmationFragment extends Fragment {
                         } else {
                             loadingDialog.stopLoading();
                             Log.d("TAG", "onComplete: " + task.getException());
-                            Toast.makeText(requireContext(), "Error : " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireContext(), "Lỗi : " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -93,15 +93,15 @@ public class EmailConfirmationFragment extends Fragment {
         View requestView = null;
 
         if (email.isEmpty()) {
-            binding.edtCEmail.setError("Field is required");
+            binding.edtCEmail.setError("Yêu cầu nhập Email!");
             flag = true;
             requestView = binding.edtCEmail;
         } else if (password.isEmpty()) {
-            binding.edtCPassword.setError("Field is required");
+            binding.edtCPassword.setError("Yêu cầu nhập mật khẩu!");
             flag = true;
             requestView = binding.edtCPassword;
         } else if (password.length() < 8) {
-            binding.edtCPassword.setError("Minimum 8 characters");
+            binding.edtCPassword.setError("Tối thiểu 8 kí tự!");
             flag = true;
             requestView = binding.edtCPassword;
         }

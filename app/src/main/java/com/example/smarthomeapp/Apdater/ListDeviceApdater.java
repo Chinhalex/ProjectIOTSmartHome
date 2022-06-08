@@ -1,5 +1,6 @@
 package com.example.smarthomeapp.Apdater;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,11 +38,13 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
 
         TextView nameDevice ;
         Switch adjust_width;
+        ImageView btn_clear;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nameDevice = itemView.findViewById(R.id.nameDevice);
             adjust_width=itemView.findViewById(R.id.adjust_width);
+            btn_clear = itemView.findViewById(R.id.btn_clear);
 
         }
     }
@@ -70,8 +73,32 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
                         updateFirebase(deviceModel);
                     }
                 });
+
+        holder.btn_clear.setOnClickListener(v->{
+            AlertDialog dialog = new AlertDialog.Builder(context)
+                    .setTitle("Xóa thiết bị")
+                    .setMessage("Bạn có muốn xóa thiết bị này?")
+                    .setNegativeButton("HỦY BỎ", (dialogInterface, which) -> dialogInterface.dismiss())
+                    .setPositiveButton("ĐỒNG Ý", (dialogInterface1, which1) -> {
+
+                        //Temp Remove
+                        notifyItemRemoved(position);
+
+                        deleteFromFirebase(list.get(position));
+                        dialogInterface1.dismiss();
+                    }).create();
+            dialog.show();
+        });
     }
 
+    private void deleteFromFirebase(DeviceModel deviceModel) {
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(firebaseUser.getUid()).child("device").child(deviceModel.getId())
+                .removeValue();
+              //  .addOnSuccessListener(aVoid -> EventBus.getDefault().postSticky(new MyUpdateCartEvent()));
+    }
 
 
     private void updateFirebase(DeviceModel deviceModel) {

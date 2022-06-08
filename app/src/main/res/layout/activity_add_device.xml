@@ -44,7 +44,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Chọn 1 chân trên ESP32"
+          android:text="Chọn 1 chân thiết bị"
           android:textColor="@color/black"
           android:textSize="20dp"
           android:textStyle="bold" />
@@ -158,20 +158,9 @@
         android:layout_marginTop="10dp">
 
       <Button
-          android:id="@+id/addWidgetSlider"
-          android:layout_width="0dp"
+          android:id="@+id/addWidgeSwitch"
+          android:layout_width="160dp"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="thanh gạt" />
-
-      <Button
-          android:id="@+id/addWidgetSwitch"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_centerHorizontal="true"
-          android:layout_marginLeft="20dp"
-          android:layout_marginRight="20dp"
-          android:layout_weight="1"
           android:text="Nút gạt" />
 
 
@@ -181,8 +170,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp">
 
       <Button
           android:id="@+id/confirmAdd"

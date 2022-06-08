@@ -99,13 +99,13 @@ public class DataToEsp extends AppCompatActivity {
 
                     if (name.isEmpty())
                     {
-                        reg_name.setError("Name is reqired!");
+                        reg_name.setError("Yêu cầu nhập tên Wifi");
                         reg_name.requestFocus();
                         return;
                     }
                     if (pass.isEmpty())
                     {
-                        reg_pass.setError("pass is reqired!");
+                        reg_pass.setError("Yêu cầu mật khẩu Wifi");
                         reg_pass.requestFocus();
                         return;
                     }

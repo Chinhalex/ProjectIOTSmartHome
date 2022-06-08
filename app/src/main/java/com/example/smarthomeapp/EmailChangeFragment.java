@@ -46,7 +46,7 @@ public class EmailChangeFragment extends Fragment {
 
             String email = binding.edtUEmail.getText().toString().trim();
             if (email.isEmpty()) {
-                binding.edtUEmail.setError("Email is required");
+                binding.edtUEmail.setError("Yêu cầu Email");
                 binding.edtUEmail.requestFocus();
             } else {
                 loadingDialog.startLoading();
@@ -67,8 +67,8 @@ public class EmailChangeFragment extends Fragment {
 
                         } else {
                             loadingDialog.stopLoading();
-                            Log.d("TAG", "onComplete: " + task.getException());
-                            Toast.makeText(requireContext(), "Error : " + task.getException(), Toast.LENGTH_SHORT).show();
+                          //  Log.d("TAG", "onComplete: " + task.getException());
+                            Toast.makeText(requireContext(), "Lỗi : " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

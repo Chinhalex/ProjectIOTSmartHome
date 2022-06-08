@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseDTH11;
+    private DatabaseReference databaseDTH11, dataUser;
     private List<DeviceModel> deviceModels;
     FirebaseAuth mAuth;
 
@@ -87,9 +87,24 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //name user
+        dataUser = FirebaseDatabase.getInstance().getReference("Users")
+                .child(firebaseUser.getUid());
+        dataUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    User userModel = snapshot.getValue(User.class);
+                    binding.nameUser.setText("Chào " + userModel.getUsername());
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
         binding.livingroom.setOnClickListener(view -> {
             Intent intent = new Intent(requireContext(), LivingRoom.class);
-           // intent.putExtra("nameRoom", "livingroom");
             startActivity(intent);
         });
 
@@ -104,7 +119,7 @@ public class HomeFragment extends Fragment {
             if (deviceModel.isStatus()==true)
                 statusSum ++;
         }
-       binding.statusDevice.setText(statusSum + " Devices ON");
+       binding.statusDevice.setText(statusSum + " đang hoạt động");
     }
 
     @Override
