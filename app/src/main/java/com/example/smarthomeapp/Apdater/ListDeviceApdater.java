@@ -36,15 +36,16 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nameDevice ;
+        TextView nameDevice, pin ;
         Switch adjust_width;
         ImageView btn_clear;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nameDevice = itemView.findViewById(R.id.nameDevice);
-            adjust_width=itemView.findViewById(R.id.adjust_width);
+            adjust_width = itemView.findViewById(R.id.adjust_width);
             btn_clear = itemView.findViewById(R.id.btn_clear);
+            pin = itemView.findViewById(R.id.pin);
 
         }
     }
@@ -63,7 +64,7 @@ public class ListDeviceApdater extends RecyclerView.Adapter<ListDeviceApdater.My
 
         holder.adjust_width.setChecked(list.get(position).isStatus());
         holder.nameDevice.setText(list.get(position).getName());
-
+        holder.pin.setText("PIN" + list.get(position).getId());
         holder.adjust_width.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override

@@ -39,8 +39,6 @@ public class RecordFragment extends Fragment {
     FirebaseAuth mAuth;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -98,9 +96,8 @@ public class RecordFragment extends Fragment {
             case RESULT_SPEECH:
                 if(resultCode == RESULT_OK && data != null){
                     String dataVoice = new String(data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0));
-                    for (int i = 0; i < deviceModels.size(); i++) {
-
-                        if (deviceModels.get(i).getStyle().equals("button")) {
+                    if (deviceModels.size() != 0) {
+                     for (int i = 0; i < deviceModels.size(); i++) {
                             //+ deviceModels.get(i).getName()
                             if(dataVoice.contentEquals("Bật "+ deviceModels.get(i).getName())||dataVoice.contentEquals("bật "+ deviceModels.get(i).getName())){
                                 deviceModels.get(i).status = true;
@@ -116,8 +113,12 @@ public class RecordFragment extends Fragment {
                                         .child(deviceModels.get(i).getId()).setValue(deviceModels.get(i));
                                 Toast.makeText(requireContext(), "đã tắt "+ deviceModels.get(i).getName(), Toast.LENGTH_LONG).show();
                             }
+                            else
+                                Toast.makeText(requireContext(), "Không tìm thấy thiết bị!!!", Toast.LENGTH_LONG).show();
                         }
                     }
+                    else
+                        Toast.makeText(requireContext(), "Không tìm thấy thiết bị!!!", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
